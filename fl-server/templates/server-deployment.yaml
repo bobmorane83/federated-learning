@@ -17,14 +17,14 @@ spec:
       # nodeSelector:
       #   fleet : A
       containers:
-        - name: server
-          image: bobmorane/fl-server:v1.0
-          imagePullPolicy: Always
-          ports:
-          - name: prometheus
-            containerPort: 8000
-          - name: fl
-            containerPort: 8080
-          env:
-          - name: http_proxy
-            value: "sopl352.sop.renault.fr:911"
+      - name: server
+        image: bobmorane/fl-server:v1.0
+        imagePullPolicy: Always
+        ports:
+        - name: prometheus
+          containerPort: 8000
+        - name: fl
+          containerPort: 8080
+        env:
+        - name: http_proxy
+          value: "sopl352.sop.renault.fr:911"
