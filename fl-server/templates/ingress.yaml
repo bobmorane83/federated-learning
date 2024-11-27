@@ -7,13 +7,13 @@ metadata:
   namespace: default
   annotations:
     kubernetes.io/ingress.class: traefik
-    traefik.ingress.kubernetes.io/router.entrypoints: web
+    traefik.ingress.kubernetes.io/router.entrypoints: tcp1
 spec:
   rules:
     - host: poc.faf.dev.gcp.renault.com
       http:
         paths:
-          - path: /fl
+          - path: /
             pathType: Prefix
             backend:
               service:
