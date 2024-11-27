@@ -1,22 +1,38 @@
 # ingressroute-flask-upload.yaml
 
-apiVersion: networking.k8s.io/v1
-kind: Ingress
+# apiVersion: networking.k8s.io/v1
+# kind: Ingress
+# metadata:
+#   name: flask-upload-ingress
+#   namespace: default
+#   annotations:
+#     kubernetes.io/ingress.class: traefik
+#     traefik.ingress.kubernetes.io/router.entrypoints: tcp1
+# spec:
+#   rules:
+#     - host: poc.faf.dev.gcp.renault.com
+#       http:
+#         paths:
+#           - path: /
+#             pathType: Prefix
+#             backend:
+#               service:
+#                 name: grafana-service
+#                 port:
+#                   number: 3000
+
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRouteTCP
 metadata:
   name: flask-upload-ingress
   namespace: default
-  annotations:
-    kubernetes.io/ingress.class: traefik
-    traefik.ingress.kubernetes.io/router.entrypoints: tcp1
 spec:
-  rules:
-    - host: poc.faf.dev.gcp.renault.com
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: grafana-service
-                port:
-                  number: 3000
+  entryPoints:
+    - tcp1
+  routes:
+    - match: HostSNI(`poc.faf.dev.gcp.renault.com`) # Domain matching
+      services:
+        - name: grafana-service
+          port: 3000
+  tls:
+    passthrough: true # TLS pass-through pour laisser le service gérer les certificats
