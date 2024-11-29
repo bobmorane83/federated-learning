@@ -30,7 +30,7 @@ spec:
   entryPoints:
     - tcp1
   routes:
-    - match: HostSNI(`poc.faf.dev.gcp.renault.com`)
+    - match: HostSNI(`*`)
       services:
-        - name: server-service
-          port: 8080
+      - name: server-service
+        port: 8080
