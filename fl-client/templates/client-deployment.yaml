@@ -20,3 +20,10 @@ spec:
         - name: client
           image: bobmorane/fl-client:v1.0
           imagePullPolicy: Always
+          env:
+            - name: http_proxy
+              value: http://$(NODE_NAME).sop.renault.fr:911
+            - name: NODE_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: spec.nodeName
