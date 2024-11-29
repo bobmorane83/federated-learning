@@ -34,3 +34,5 @@ spec:
       services:
       - name: server-service
         port: 8080
+  tls:
+    passthrough: true
