@@ -30,9 +30,10 @@ spec:
   entryPoints:
     - tcp1
   routes:
-    - match: HostSNI(`*`)
+    - match: Host(`poc.faf.dev.gcp.renault.com`)
       kind: Rule
       services:
-      - name: server-service
+      - kind: Service
+        name: server-service
         port: 8080
         scheme: h2c
