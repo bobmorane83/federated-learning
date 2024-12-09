@@ -32,6 +32,7 @@ spec:
     - tcp1
   routes:
     - match: Host(`poc.faf.dev.gcp.renault.com`) && Headers(`Content-Type`, `application/grpc`)
+      priority: 11
       kind: Rule
       services:
       - kind: Service
