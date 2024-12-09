@@ -8,7 +8,7 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: traefik
     traefik.ingress.kubernetes.io/router.entrypoints: tcp1
-    traefik.ingress.kubernetes.io/service.servers.scheme: h2c
+    traefik.ingress.kubernetes.io/service.serversscheme: h2c
 spec:
   rules:
     - host: poc.faf.dev.gcp.renault.com
