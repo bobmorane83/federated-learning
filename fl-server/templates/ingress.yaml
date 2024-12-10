@@ -31,9 +31,9 @@ spec:
   entryPoints:
     - tcp1
   routes:
-    - match: Host(`poc.faf.dev.gcp.renault.com`) # && Headers(`Content-Type`, `application/grpc`)
-      kind: Rule
-#      match: PathPrefix(`/`)
+#    - match: Host(`poc.faf.dev.gcp.renault.com`) && Headers(`Content-Type`, `application/grpc`)
+    - kind: Rule
+      match: PathPrefix(`/`)
       services:
       - kind: Service
         name: server-service
