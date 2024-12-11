@@ -31,7 +31,7 @@ spec:
   entryPoints:
     - tcp1
   routes:
-    - match: Host(`sopl352.sop.renault.fr`) && Headers(`Content-Type`, `application/grpc`)
+    - match: Host(`poc.faf.dev.gcp.renault.com:10002`) && Headers(`Content-Type`, `application/grpc`)
 #      priority: 1000
       kind: Rule
 #      match: PathPrefix(`/`)
