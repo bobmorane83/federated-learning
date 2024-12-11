@@ -25,14 +25,14 @@
 apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
 metadata:
-  name: server-ingress-tcp
+  name: server-ingress
   namespace: default
 spec:
   entryPoints:
-    - web
+    - tcp1
   routes:
-    - match: Host(`poc.faf.dev.gcp.renault.com`) && Headers(`Content-Type`, `application/grpc`)
-      priority: 1000
+    - match: Host(`sopl352.sop.renault.fr`) && Headers(`Content-Type`, `application/grpc`)
+#      priority: 1000
       kind: Rule
 #      match: PathPrefix(`/`)
       services:
