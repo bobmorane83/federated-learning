@@ -28,11 +28,11 @@ metadata:
   name: server-ingress
   namespace: default
 spec:
-  entryPoints:
-    - tcp1
+#  entryPoints:
+#    - tcp1
   routes:
     - match: Host(`sopl041.sop.renault.fr`) && Headers(`Content-Type`, `application/grpc`)
-      priority: 1000
+#      priority: 1000
       kind: Rule
 #      match: PathPrefix(`/`)
       services:
